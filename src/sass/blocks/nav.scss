@@ -1,0 +1,61 @@
+
+.nav-wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.logo {
+    font-family: 'Muli Semibold', sans-serif;
+    text-transform: uppercase;
+    color: #041122;
+    font-size: 22px;
+}
+
+.logo:hover,
+.logo:active,
+.logo:focus {
+    color: #041122;
+}
+
+.navigation {
+    font-size: 15px;
+    font-family: 'Muli Regular', sans-serif;
+}
+
+
+.navigation__link {
+    text-decoration: none;
+    margin-right: 30px;
+    color: #52575D;
+    transition: all 0.2s ease-in; 
+
+}
+
+.navigation__link:hover,  
+.navigation__link:active,
+.navigation__link:focus {
+    color: #f72464;
+    text-decoration: none;
+}
+
+
+.cart {
+    color: #52575D;
+    position: relative;
+
+}
+
+.cart__number {
+    height: 19px;
+    width: 19px;
+    background-color: #f72464;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 1.2px;
+    color: white;
+    font-size: 12px;
+    font-family: 'Muli Semibold', sans-serif;
+    position: absolute;
+    left: 5px;
+    bottom: -8px;
+}

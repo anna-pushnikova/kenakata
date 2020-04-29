@@ -1,0 +1,160 @@
+
+.section {
+    padding: 90px 0;
+    margin: 0 auto;
+}
+
+.row {
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 35px;
+    font-family: 'Droid Serif Regular', serif;
+    font-weight: 500;
+    color: #222; 
+    margin: 0;
+    margin-bottom: 5px;
+    text-align: center;
+
+}
+
+.subtitle {
+    font-family: 'Muli Light', sans-serif;
+    font-size: 12px;
+    color: #919191;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 80px;
+
+}
+
+.card {
+    text-align: center;
+    margin-right: 20px;
+}
+
+.card__image {
+    margin-bottom: 15px;
+    position: relative;
+    width: 235px;
+    height: 294px;
+    border-radius: 3px;
+    overflow: hidden;
+
+}
+
+.card__title {
+    font-size: 18px;
+    font-family: 'Droid Serif Regular', serif;
+    color: #222;
+    line-height: 1;
+    margin-bottom: 10px;
+
+}
+
+.card__price {
+    font-family: 'Droid Serif Regular', serif;
+    font-size: 13px;
+    color: #f72464;
+
+    & span {
+        color: #838B8F;
+        text-decoration: line-through;
+        margin-right: 5px;
+    }
+}
+
+
+.button-outline {
+    font-size: 14px;
+    font-family: 'Lora Regular', serif;
+    color: rgb(144, 144, 144);
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: center;
+    padding: 10px 38px;
+    border: 1px solid #f72464;
+    border-radius: 5px;
+    width: 220px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+  }
+
+
+.button-outline:hover,
+.button-outline:active,
+.button-outline:focus {
+    border: 1px solid #f72464;
+    background-color: #f72464;
+    color: #fff;
+
+}
+
+  
+.card__hover {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.2s ease-in;
+
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.card__hover:hover {
+    opacity: 1;
+}
+
+.card__image.hovered .card__hover {
+    opacity: 1;
+}
+
+
+
+
+.card__button {
+    background-color: #f72464;
+    color: white;
+    font-family: 'Muli Regular', serif;
+    font-size: 14px;
+    line-height: 1;
+    padding-top: 14px;
+    width: 120px;
+    height: 40px; 
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 5px 30px 0 rgba(31, 35, 37, 0.3);
+    text-decoration: none;
+    transition: all 0.2s ease-in; 
+    cursor: pointer;
+
+        &:first-child {
+            margin-bottom: 10px;
+        }
+
+}
+
+.card__button:hover,
+.card__button:active,
+.card__button:focus {
+    background-color: #da0f4d;
+    text-decoration: none;
+    box-shadow: 0 5px 30px 0 rgba(31, 35, 37, 0.4);
+    color: white; 
+}
+
+  
+

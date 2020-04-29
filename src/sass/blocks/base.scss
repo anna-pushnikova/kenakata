@@ -1,0 +1,32 @@
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    
+}
+
+body {
+    font-family: 'Muli Regular', sans-serif;
+}
+
+li {
+    list-style: none;
+
+}
+
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none;
+}
+

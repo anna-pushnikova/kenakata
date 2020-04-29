@@ -1,0 +1,84 @@
+
+.blog__section {
+    padding-top: 90px;
+    padding-bottom: 80px;
+    margin: 0 auto;
+}
+
+.blog {
+    margin-bottom: 25px;
+}
+
+.blog__description {
+    font-size: 15px;
+    color: rgb(136, 136, 136);
+    font-family: 'Muli Light', sans-serif;
+    font-weight: 300;
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.blog__title {
+    font-size: 18px;
+    font-family: 'Droid Serif Regular', serif;
+    font-weight: 500;
+    color: rgb(39, 39, 39);
+    margin-bottom: 10px;
+}
+
+.blog__image img{
+    border-radius: 3px;
+}
+
+
+  
+.blog__read-more {
+    font-family: 'Droid Serif Regular', serif;
+    font-size: 15px;
+    color: rgb(39, 39, 39);
+    font-weight: 500;
+
+    position: relative;
+
+    &::after {
+        content: url('./../images/arrow.svg');
+        position: absolute;
+        top: -3px;
+        right: -30px;
+
+    }
+
+}
+
+.blog__read-more:hover,
+.blog__read-more:active,
+.blog__read-more:focus {
+    color: rgb(39, 39, 39);
+}
+
+.blog__btn {
+    font-size: 14px;
+    font-family: 'Lora Regular', serif;
+    color: rgb(144, 144, 144);
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: center;
+    padding: 10px 38px;
+    border: 1px solid #f72464;
+    border-radius: 5px;
+    width: 220px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-top: 55px;
+    transition: all 0.2s ease-in;
+}
+
+.blog__btn:hover,
+.blog__btn:active,
+.blog__btn:focus {
+    border: 1px solid #f72464;
+    background-color: #f72464;
+    color: #fff;
+}
+
