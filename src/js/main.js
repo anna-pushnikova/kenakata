@@ -1,32 +1,45 @@
-import 'sass/main.scss';
+function ready() {
+  let navToggler = document.getElementById("nav-toggler"),
+      nav = document.getElementById("nav"),
+      header = document.getElementById("header"),
+      headerHeight = header.clientHeight,
+      navMenu = document.getElementById("nav-menu");
 
-import 'images/bg/bg.jpg';
-import 'images/bg/girl@3x.jpg';
-import 'images/bg/Rectangle 13@2x.png';
-import 'images/bg/Rectangle 4@2x.png';
-import 'images/blog/1.jpg';
-import 'images/blog/2.jpg';
-import 'images/blog/3.jpg';
-import 'images/blog/4.jpg';
-import 'images/brand/1.png';
-import 'images/brand/2.png';
-import 'images/brand/3.png';
-import 'images/brand/4.png';
-import 'images/brand/5.png';
-import 'images/brand/6.png';
-import 'images/product-images/1.jpg';
-import 'images/product-images/2.jpg';
-import 'images/product-images/3.jpg';
-import 'images/product-images/32_main-270x335@3x.jpg';
-import 'images/product-images/4.jpg';
-import 'images/product-images/5.jpg';
-import 'images/product-images/6.jpg';
-import 'images/product-images/7.jpg';
-import 'images/product-images/product-img (14)@3x.jpg';
-import 'images/product-images/product-img (7)@3x.jpg';
-import 'images/product-images/8.jpg';
-import 'images/product-images/9.jpg';
-import 'images/product-images/Фон@2x.jpg';
-import 'images/1-1@3x.svg';
-import 'images/arrow.svg';
+  toggleNavClass()
 
+  function toggleNavClass () {
+    if (window.scrollY > headerHeight) {
+      nav.classList.add("fixed");
+    } else {
+      nav.classList.remove("fixed");
+    }
+  }
+
+  // Fixed Navbar
+
+  document.addEventListener("scroll", function() {
+    toggleNavClass()
+    navToggler.classList.remove("active");
+    navMenu.classList.remove("show");
+  })
+
+  navToggler.addEventListener("click", function() {
+    this.classList.toggle("active");
+    navMenu.classList.toggle("show");
+  })
+}
+
+
+document.addEventListener("DOMContentLoaded", ready);
+
+// Show preloader until BG is loaded
+
+const preloader = document.getElementById('preloader');
+const pageContent = document.getElementById('content');
+
+const img = new Image;
+img.onload = function() {
+  pageContent.style.display = "block";
+  preloader.style.display = "none";
+} 
+img.src = "/images/bg/BG.jpg";

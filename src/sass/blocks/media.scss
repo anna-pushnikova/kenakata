@@ -1,0 +1,157 @@
+/* 
+xs: 0,
+sm: 575px,
+md: 767px,
+lg: 992px
+*/
+
+@media (max-width: map_get($grid-breakpoints, lg)) {
+  .adv__title {
+    font-size: 50px;
+  }
+
+  .card .card__image {
+    margin-bottom: 10px;
+  }
+
+}
+
+@media (max-width: map_get($grid-breakpoints, md)) {
+
+  .nav-wrapper {
+    height: 70px;
+  }
+
+  .navigation,
+
+  .cart {
+    display: none;
+  }
+
+  .nav-toggler {
+    display: block;
+  }
+
+  .navigation__link {
+    display: inline-block;
+    margin: 20px 20px;
+  }
+
+  .card {
+    margin-right: 0;
+  }
+
+  .card__title {
+    margin: 0;
+  }
+
+  .adv__title {
+    font-size: 36px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .subtitle {
+    margin-bottom: 50px;
+  }
+
+  .blog__section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .header {
+    background-size: 80%;
+  }
+
+}
+
+@media (max-width: map_get($grid-breakpoints, sm)) {
+
+  .header {
+    height: 400px;
+
+    background-size: 97%;
+  }
+
+  .header__title {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+
+  .header__description {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .header__button {
+    padding: 10px 30px;
+    font-size: 14px;
+  }
+
+  .section,
+  .blog__section {
+    padding: 30px 5px;
+  }
+
+  .adv__title {
+    font-size: 26px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .adv__button {
+    padding: 10px 30px;
+    font-size: 14px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .cta__description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .blog__title {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .blog__description {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .blog__btn {
+    margin-top: 30px;
+  }
+
+  .subscribe__input {
+    padding: 10px 5px;
+    margin-right: 0;
+  }
+
+  .subscribe__button {
+    padding: 10px 15px;
+    border: none;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-nav__link {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+ 
+}

@@ -5,11 +5,11 @@
     height: 185px;
 
     .row {
-
         height: 100%;
         width: 1140px;
         margin-right: auto;
         margin-left: auto;
+        padding: 0 10px;
 
     }
 
@@ -51,30 +51,36 @@
   
   
 .adv-wrapper--bg-1 {
-    background: url('./../images/bg/Rectangle\ 4@2x.png') no-repeat center;
+    background: url('/images/bg/adv-wrapper_BG-1.png') no-repeat center;
     background-size: cover;
     background-color: black;
     
 }
 
 .adv-wrapper--bg-2 {
-    background: url('./../images/bg/Rectangle\ 13@2x.png') no-repeat center;
+    background: url('/images/bg/adv-wrapper_BG-2.png') no-repeat center;
     background-size: cover;
     background-color: black;
 
-    & img {
+    img {
         background-color: #f6f5f5;
     }
 }
 
   
 .adv-item {
-    width: 165px;
-    height: 76px;
+    max-width: 165px;
+    margin: 0 auto;
 
-    & img {
+    img {
         border-radius: 3px;
     }
-    
 
 }
+
+.adv-wrapper .row {
+    height: 100%;
+    width: 100%;
+    max-width: 1140px;
+}
+

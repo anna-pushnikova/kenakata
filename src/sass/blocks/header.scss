@@ -1,16 +1,18 @@
 
 .header {
     height: 700px;
-    background-image: url('./../images/bg/girl@3x.jpg');
-    background-repeat: no-repeat;
-    background-size: 62%;
-    background-position: 500px 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
+    background-image: url('/images/bg/BG.jpg');
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 100% 0;
 
 }
+
+.container 
 
 .header__content {
     max-width: 750px;

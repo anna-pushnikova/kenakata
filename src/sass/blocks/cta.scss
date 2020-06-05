@@ -39,6 +39,8 @@
     transition: all 0.2s ease-in; 
     height: 40px;
     cursor: pointer;
+    outline: none;
+    border: none;
 }
 
 .subscribe__button:focus,

@@ -1,125 +1,98 @@
-const webpack = require('webpack');
-const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
-const TerserWebpackPlugin = require('terser-webpack-plugin');
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
-const isDev = process.env.NODE_ENV === 'development';
-const isProd = !isDev;
-const optimization = () => {
-  const config =  {
-    splitChunks: {
-      chunks: 'all'
-    }
-  }
-  if (isProd) {
-    config.minimizer = [
-      new OptimizeCssPlugin(),
-      new TerserWebpackPlugin()
-    ]
-  }
-  return config
-}
-
-const filename = ext => isDev ? `[name].${ext}` : `[name].[hash].${ext}`
-
-module.exports = {
-  context: path.resolve(__dirname, 'src'),
-  mode: 'development',
-  entry: ['./js/main.js'],
+const config = {
+  entry: ["./src/js/main.js", "./src/js/styles.js", "./src/sass/main.scss"],
   output: {
-    filename: filename('js'),
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: './'
+    filename: "./js/script.js",
+    path: path.resolve(__dirname, 'dist')
   },
-  devtool: isDev ? 'source-map' : '',
-  optimization: optimization(),
+  devtool: "source-map",
+  mode: "production",
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        sourceMap: true,
+        extractComments: true
+      })
+    ]
+  },
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [ 
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDev,
-              reloadAll: true
-            },
-          }, 
-        "css-loader" 
-      ]
-      },
-      {
-        test: /\.s[ac]ss$/i,
+        test: /\.(sass|scss)$/,
+        include: path.resolve(__dirname, "src/sass"),
         use: [
           {
-            loader: 'style-loader',
+            loader: MiniCssExtractPlugin.loader
           },
           {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'sass-loader',
+            loader: "css-loader",
             options: {
-              // Prefer `dart-sass`
-              implementation: require('sass'),
+              sourceMap: true,
+              url: false
             }
-          }             // compiles Sass to CSS
-        ]
-      },
-      {
-        test: /\.(ico|woff|woff2|eot|ttf|gif|png|jpe?g|svg)$/,
-        loader: `file-loader`,
-        options: {
-          context: path.resolve(__dirname, 'src'),
-          name: '[path][name].[ext]'
-        },
-      },
-      
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env'
-            ]
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              sourceMap: true,
+              plugins: () => [
+                require("cssnano")({
+                  preset: [
+                    "default",
+                    {
+                      discardComments: {
+                        removeAll: true
+                      }
+                    }
+                  ]
+                })
+              ]
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
           }
-        }
+        ]
       }
     ]
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
-     "window.jQuery": "jquery"
-    }),
-    new HTMLWebpackPlugin({
-      template: './index.html',
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: "src/index.html",
       minify: {
-        collapseWhitespace: isProd
+        collapseWhitespace: true
       }
     }),
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: filename('css')
+      filename: "./css/style.css"
     }),
     new CopyWebpackPlugin([
-      { from: 'src/img/*', to: 'dist/img/' },
-      { from: 'src/fonts/*', to: 'dist/fonts/' }
+      {
+        from: "./src/fonts",
+        to: "./fonts"
+      },
+      {
+        from: "./src/images",
+        to: "./images"
+      }
     ])
-  ],
-  resolve: { 
-    modules: [
-      'node_modules',
-      path.resolve('./src/')
-    ],
-    extensions: 
-      ['.js', '.jsx','.css', '.scss', '.png']
+  ]
+};
+
+module.exports = (env, argv) => {
+  if (argv.mode === "production") {
+    config.plugins.push(new CleanWebpackPlugin());
   }
+  return config;
 }

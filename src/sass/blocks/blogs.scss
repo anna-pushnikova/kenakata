@@ -41,7 +41,7 @@
     position: relative;
 
     &::after {
-        content: url('./../images/arrow.svg');
+        content: url('/images/icons/arrow.svg');
         position: absolute;
         top: -3px;
         right: -30px;

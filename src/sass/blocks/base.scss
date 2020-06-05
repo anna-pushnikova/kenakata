@@ -30,3 +30,16 @@ a:focus {
     text-decoration: none;
 }
 
+.res-margin {
+    margin-bottom: 20px;
+}
+
+.section .container .row:after {
+    content: "";
+    flex: auto;
+}
+
+#content {
+    display: none;
+}
+

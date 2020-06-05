@@ -36,12 +36,13 @@
 }
 
 .card__image {
-    margin-bottom: 15px;
     position: relative;
     width: 235px;
     height: 294px;
     border-radius: 3px;
     overflow: hidden;
+
+    margin: 0 auto 15px;
 
 }
 
